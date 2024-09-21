@@ -21,4 +21,17 @@ class HomeController extends AbstractController
             'personnages' => $personnages->toArray()['results'],
         ]);
     }
+
+    #[Route('/personnage/{id}', name: 'app_personnage', requirements: ['id' => '\d+'])]
+    public function personnage(int $id, HttpClientInterface $httpClient): Response
+    {
+        $personnage = $httpClient->request(
+            'GET',
+            'https://swapi.dev/api/people/' . $id
+        );
+
+        return $this->render('home/personnage.html.twig', [
+            'personnage' => $personnage->toArray()
+        ]);
+    }
 }
