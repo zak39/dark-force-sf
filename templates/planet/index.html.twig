@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des planètes{% endblock %}
+
+{% block body %}
+    <h5>Les planètes</h5>
+    {% for planet in planets %}
+        <article>
+            <a href="{{ path(
+                'app_planet_show',
+                {
+                    'id': planet.url|replace({
+                        'https://swapi.dev/api/planets/': '',
+                        '/': ''
+                    })
+                }
+            ) }}">
+                {{ planet.name }}
+            </a>
+        </article>
+    {% endfor %}
+
+    {% if previous is null %}
+        <a href="#" class="secondary">Précédent</a>
+    {% else %}
+        <a href="{{ path('app_planet_index', { 'page': previous }) }}">Précédent</a>
+    {% endif %}
+
+    {% if next is null %}
+        <a href="#" class="secondary">Suivant</a>
+    {% else %}
+        <a href="{{ path('app_planet_index', { 'page': next }) }}">Suivant</a>
+    {% endif %}
+{% endblock %}

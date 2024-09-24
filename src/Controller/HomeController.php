@@ -14,23 +14,10 @@ class HomeController extends AbstractController
     {
     }
 
-    #[Route('/', name: 'app_home', requirements: ['id' => '\d+'])]
-    public function index(Request $request): Response
+    #[Route('/', name: 'app_home')]
+    public function index(): Response
     {
-        $page = $request->query->get('page', 1);
-
-        return $this->render('home/index.html.twig', [
-            'personnages' => $this->peopleService->findAll($page)->getResults(),
-            'next' => $this->peopleService->findAll($page)->getNext(),
-            'previous' => $this->peopleService->findAll($page)->getPrevious()
-        ]);
+        return $this->render('home/index.html.twig');
     }
 
-    #[Route('/personnage/{id}', name: 'app_personnage', requirements: ['id' => '\d+'])]
-    public function personnage(int $id): Response
-    {
-        return $this->render('home/personnage.html.twig', [
-            'personnage' => $this->peopleService->find($id),
-        ]);
-    }
 }

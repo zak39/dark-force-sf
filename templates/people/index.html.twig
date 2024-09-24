@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des personnages{% endblock %}
+
+{% block body %}
+    <h5>Les personnages</h5>
+    {% for personnage in personnages %}
+        <article>
+            <a href="{{ path(
+                'app_personnage_show',
+                {
+                    'id': personnage.url|replace({
+                        'https://swapi.dev/api/people/': '',
+                        '/': ''
+                    })
+                }
+            ) }}">
+                {{ personnage.name }}
+            </a>
+        </article>
+    {% endfor %}
+
+    {% if previous is null %}
+        <a href="#" class="secondary">Précédent</a>
+    {% else %}
+        <a href="{{ path('app_personnage_index', { 'page': previous }) }}">Précédent</a>
+    {% endif %}
+
+    {% if next is null %}
+        <a href="#" class="secondary">Suivant</a>
+    {% else %}
+        <a href="{{ path('app_personnage_index', { 'page': next }) }}">Suivant</a>
+    {% endif %}
+{% endblock %}

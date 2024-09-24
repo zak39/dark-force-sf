@@ -15,7 +15,17 @@
     </head>
     <body>
         <main class="container">
-            <h1>Star Wars API</h1>
+            <nav>
+                <ul>
+                    <li><strong>Star Wars API</strong></li>
+                </ul>
+                <ul>
+                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_personnage_index') }}">Personnages</a></li>
+                    <li><a href="{{ path('app_starship_index') }}">Vaisseaux</a></li>
+                    <li><a href="{{ path('app_planet_index' )}}">Planètes</a></li>
+                </ul>
+            </nav>
             {% block body %}{% endblock %}
         </main>
     </body>

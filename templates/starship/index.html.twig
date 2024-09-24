@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des vaisseaux{% endblock %}
+
+{% block body %}
+    <h5>Les vaisseaux</h5>
+    {% for starship in starships %}
+        <article>
+            <a href="{{ path(
+                'app_starship_show',
+                {
+                    'id': starship.url|replace({
+                        'https://swapi.dev/api/starships/': '',
+                        '/': ''
+                    })
+                }
+            ) }}">
+                {{ starship.name }}
+            </a>
+        </article>
+    {% endfor %}
+
+    {% if previous is null %}
+        <a href="#" class="secondary">Précédent</a>
+    {% else %}
+        <a href="{{ path('app_starship_index', { 'page': previous }) }}">Précédent</a>
+    {% endif %}
+
+    {% if next is null %}
+        <a href="#" class="secondary">Suivant</a>
+    {% else %}
+        <a href="{{ path('app_starship_index', { 'page': next }) }}">Suivant</a>
+    {% endif %}
+{% endblock %}

@@ -1,33 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index des personnages{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-    {% for personnage in personnages %}
-        <article>
-            <a href="{{ path(
-                'app_personnage',
-                {
-                    'id': personnage.url|replace({
-                        'https://swapi.dev/api/people/': '',
-                        '/': ''
-                    })
-                }
-            ) }}">
-                {{ personnage.name }}
-            </a>
-        </article>
-    {% endfor %}
-
-    {% if previous is null %}
-        <a href="#" class="secondary">Précédent</a>
-    {% else %}
-        <a href="{{ path('app_home', { 'page': previous }) }}">Précédent</a>
-    {% endif %}
-
-    {% if next is null %}
-        <a href="#" class="secondary">Suivant</a>
-    {% else %}
-        <a href="{{ path('app_home', { 'page': next }) }}">Suivant</a>
-    {% endif %}
+<h5>
+    Prêt à explorer le monde de Star Wars ?
+</h5>
+<div style="width:100%;height:0;padding-bottom:54%;position:relative;"><iframe src="https://giphy.com/embed/12haGO61oFZ28w" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p>
 {% endblock %}

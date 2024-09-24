@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ planet.name }}{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_planet_index' )}}">planet</a></li>
+            <li>{{ planet.name }}</li>
+        </ul>
+    </nav>
+    <h2>{{ planet.name }}</h2>
+    <ul>
+        <li>Période de rotation : {{ planet.rotation_period }}</li>
+        <li>Période orbital : {{ planet.orbital_period }}</li>
+        <li>diameter: {{ planet.diameter|number_format }} km</li>
+        <li>Climat : {{ planet.climate }}</li>
+        <li>Gravité : {{ planet.gravity }}</li>
+        <li>Type de terrain : {{ planet.terrain }}</li>
+        <li>Niveau de surface d'eau : {{ planet.surface_water }}</li>
+        <li>Nombre de population : {{ planet.population|number_format }}</li>
+        <li>Crée le : {{ planet.created|date("j F Y")  }}</li>
+        <li>Éditer le : {{ planet.edited|date("j F Y")  }}</li>
+    </ul>
+{% endblock %}

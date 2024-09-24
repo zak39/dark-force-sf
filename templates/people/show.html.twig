@@ -3,6 +3,13 @@
 {% block title %}{{ personnage.name }}{% endblock %}
 
 {% block body %}
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_personnage_index' )}}">Personnage</a></li>
+            <li>{{ personnage.name }}</li>
+        </ul>
+    </nav>
     <h2>{{ personnage.name }}</h2>
     <ul>
         <li>Année de naissance : {{ personnage.birth_year }}</li>

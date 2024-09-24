@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ starship.name }}{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_starship_index' )}}">starship</a></li>
+            <li>{{ starship.name }}</li>
+        </ul>
+    </nav>
+    <h2>{{ starship.name }}</h2>
+    <ul>
+        <li>Modèle : {{ starship.model }}</li>
+        <li>Manufacture : {{ starship.manufacturer }}</li>
+        <li>Coût: ᖬ{{ starship.cost_in_credits }}</li>
+        <li>Longueur : {{ starship.length }}</li>
+        <li>Vitesse maximale dans l'atmosphere : {{ starship.max_atmosphering_speed }}</li>
+        <li>Nombre d'équipage : {{ starship.crew }}</li>
+        <li>Nombre de passager : {{ starship.passengers }}</li>
+        <li>Capacité de marchandise : {{ starship.cargo_capacity }}</li>
+        <li>Numbre d'utilisation : {{ starship.consumables }}</li>
+        <li>Ratio Hyperdrive : {{ starship.hyperdrive_rating }}</li>
+        <li>Type de vaisseau : {{ starship.starship_class }}</li>
+        <li>Crée le : {{ starship.created|date("j F Y")  }}</li>
+        <li>Éditer le : {{ starship.edited|date("j F Y")  }}</li>
+    </ul>
+{% endblock %}
