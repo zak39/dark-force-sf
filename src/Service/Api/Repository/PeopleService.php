@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Service\Api\Repository;
 
-use App\Service\StarWarsApiService;
 use App\Service\Dto\ApiFinderAllDto;
+use App\Service\Api\StarWarsApiService;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class PeopleService
