@@ -18,4 +18,16 @@
             </a>
         </article>
     {% endfor %}
+
+    {% if previous is null %}
+        <a href="#" class="secondary">Précédent</a>
+    {% else %}
+        <a href="{{ path('app_home', { 'page': previous }) }}">Précédent</a>
+    {% endif %}
+
+    {% if next is null %}
+        <a href="#" class="secondary">Suivant</a>
+    {% else %}
+        <a href="{{ path('app_home', { 'page': next }) }}">Suivant</a>
+    {% endif %}
 {% endblock %}
