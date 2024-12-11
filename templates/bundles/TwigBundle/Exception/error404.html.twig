@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable{% endblock %}
+
+{% block body %}
+    <div class="flex flex-column items-center justify-content-center">
+        <div class="mx-2">
+            <iframe src="https://giphy.com/embed/l1JN5NpV3UMM9FDBC" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen>
+            </iframe>
+        </div>
+        
+        <h1>Page introuvable !</h1>
+        <p>La page que vous désirez n'existe pas ou a été déplacée. Vous pouvez retourner à la page d'accueil.</p>
+        <small class="mx-2">Code d'erreur: 404</small>
+
+        <a class="mx-2" href={{ path('app_home') }}><button>Retourner à la page d'accueil</button></a>
+    </div>
+{% endblock %}

@@ -6,6 +6,18 @@
     justify-content: center;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.mx-2 {
+    margin: 2rem 0 2rem 0;
+}
+
 .font-size-0-85 {
     font-size: 0.85rem;
 }
