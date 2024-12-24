@@ -28,8 +28,9 @@ class StarshipController extends AbstractController
 
     #[Route('/starships/{id}', name: 'app_starship_show', requirements: ['id' => '\d+'])]
     public function show(int $id): Response {
+        $starship = $this->starshipService->find($id)['result']['properties'];
         return $this->render('starship/show.html.twig', [
-            'starship' => $this->starshipService->find($id)
+            'starship' => $starship,
         ]);
     }
 }

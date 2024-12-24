@@ -6,5 +6,5 @@ namespace App\Service\Api;
 
 readonly class StarWarsApiService
 {
-    public const BASE_URL = 'https://swapi.dev/api';
+    public const BASE_URL = 'https://swapi.tech/api';
 }

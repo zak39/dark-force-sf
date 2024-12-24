@@ -29,8 +29,9 @@ class PlanetController extends AbstractController
     #[Route('/planet/{id}', name: 'app_planet_show', requirements: ['id' => '\d+'])]
     public function show(int $id): Response
     {
+        $planet = $this->planetService->find($id)['result']['properties'];
         return $this->render('planet/show.html.twig', [
-            'planet' => $this->planetService->find($id),
+            'planet' => $planet,
         ]);
     }
 }

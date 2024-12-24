@@ -29,8 +29,9 @@ class PeopleController extends AbstractController
     #[Route('/personnage/{id}', name: 'app_personnage_show', requirements: ['id' => '\d+'])]
     public function personnage(int $id): Response
     {
+        $personnage = $this->peopleService->find($id)['result']['properties'];
         return $this->render('people/show.html.twig', [
-            'personnage' => $this->peopleService->find($id),
+            'personnage' => $personnage,
         ]);
     }
 }

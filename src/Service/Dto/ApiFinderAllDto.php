@@ -28,7 +28,7 @@ readonly class ApiFinderAllDto
         $nextPage = self::getPage($response['next']);
         $previousPage = self::getPage($response['previous']);
 
-        return new self($response['count'], $nextPage, $previousPage, $response['results']);
+        return new self($response['total_pages'], $nextPage, $previousPage, $response['results']);
     }
 
     public function getCount(): int {
